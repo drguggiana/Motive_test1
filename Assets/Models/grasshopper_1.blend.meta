@@ -1,0 +1,328 @@
+fileFormatVersion: 2
+guid: dcaa81e944cbfb448821b4082fdb4d87
+timeCreated: 1512665270
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Armature
+    100002: BackLeftHip
+    100004: BackLeftKnee10
+    100006: BackLeftKnee11
+    100008: BackLeftKnee12
+    100010: BackLeftKnee2
+    100012: BackLeftKnee3
+    100014: BackLeftKnee4
+    100016: BackLeftKnee5
+    100018: BackLeftKnee6
+    100020: BackLeftKnee7
+    100022: BackLeftKnee8
+    100024: BackLeftKnee9
+    100026: BackLeftKneeRig
+    100028: BackLeftKneeRig_end
+    100030: BackLeftKneeStart
+    100032: BackRightKnee10
+    100034: BackRightKnee11
+    100036: BackRightKnee12
+    100038: BackRightKnee2
+    100040: BackRightKnee3
+    100042: BackRightKnee4
+    100044: BackRightKnee5
+    100046: BackRightKnee6
+    100048: BackRightKnee7
+    100050: BackRightKnee8
+    100052: BackRightKnee9
+    100054: BackRightKneeRig
+    100056: BackRightKneeRig_end
+    100058: BackRightKneeStart
+    100060: Bone_055
+    100062: CenterLeftHip
+    100064: CenterLeftKnee2
+    100066: CenterLeftKnee3
+    100068: CenterLeftKnee4
+    100070: CenterLeftKnee5
+    100072: CenterLeftKnee6
+    100074: CenterLeftKneeRig
+    100076: CenterLeftKneeRig_end
+    100078: CenterLeftKneeStart
+    100080: CenterRightFootRig
+    100082: CenterRightFootRig_end
+    100084: CenterRightHip
+    100086: CenterRightKnee2
+    100088: CenterRightKnee3
+    100090: CenterRightKnee4
+    100092: CenterRightKnee5
+    100094: CenterRightKnee6
+    100096: CenterRightKneeStart
+    100098: Chest
+    100100: ChestStart
+    100102: Cube_001
+    100104: Cube_002
+    100106: Cube_003
+    100108: Cube_004
+    100110: Estomach
+    100112: FFLeftShoulder
+    100114: FFRightShoulder
+    100116: FrontLeftArmy2
+    100118: FrontLeftArmy3
+    100120: FrontLeftArmy4
+    100122: FrontLeftArmyRig
+    100124: FrontLeftArmyRig_end
+    100126: FrontLeftArmyStart
+    100128: FrontRightArmy2
+    100130: FrontRightArmy3
+    100132: FrontRightArmy4
+    100134: FrontRightArmyRig
+    100136: FrontRightArmyRig_end
+    100138: FrontRightArmyStart
+    100140: //RootNode
+    100142: Head2
+    100144: HeadRig_001
+    100146: MouthRig
+    100148: MouthRig_end
+    100150: NeckRig
+    100152: RightBackHip
+    100154: Sphere
+    100156: Sphere_001
+    100158: Tail2
+    100160: Tail3
+    100162: TailRig
+    100164: TailRig_end
+    100166: TailStart
+    400000: Armature
+    400002: BackLeftHip
+    400004: BackLeftKnee10
+    400006: BackLeftKnee11
+    400008: BackLeftKnee12
+    400010: BackLeftKnee2
+    400012: BackLeftKnee3
+    400014: BackLeftKnee4
+    400016: BackLeftKnee5
+    400018: BackLeftKnee6
+    400020: BackLeftKnee7
+    400022: BackLeftKnee8
+    400024: BackLeftKnee9
+    400026: BackLeftKneeRig
+    400028: BackLeftKneeRig_end
+    400030: BackLeftKneeStart
+    400032: BackRightKnee10
+    400034: BackRightKnee11
+    400036: BackRightKnee12
+    400038: BackRightKnee2
+    400040: BackRightKnee3
+    400042: BackRightKnee4
+    400044: BackRightKnee5
+    400046: BackRightKnee6
+    400048: BackRightKnee7
+    400050: BackRightKnee8
+    400052: BackRightKnee9
+    400054: BackRightKneeRig
+    400056: BackRightKneeRig_end
+    400058: BackRightKneeStart
+    400060: Bone_055
+    400062: CenterLeftHip
+    400064: CenterLeftKnee2
+    400066: CenterLeftKnee3
+    400068: CenterLeftKnee4
+    400070: CenterLeftKnee5
+    400072: CenterLeftKnee6
+    400074: CenterLeftKneeRig
+    400076: CenterLeftKneeRig_end
+    400078: CenterLeftKneeStart
+    400080: CenterRightFootRig
+    400082: CenterRightFootRig_end
+    400084: CenterRightHip
+    400086: CenterRightKnee2
+    400088: CenterRightKnee3
+    400090: CenterRightKnee4
+    400092: CenterRightKnee5
+    400094: CenterRightKnee6
+    400096: CenterRightKneeStart
+    400098: Chest
+    400100: ChestStart
+    400102: Cube_001
+    400104: Cube_002
+    400106: Cube_003
+    400108: Cube_004
+    400110: Estomach
+    400112: FFLeftShoulder
+    400114: FFRightShoulder
+    400116: FrontLeftArmy2
+    400118: FrontLeftArmy3
+    400120: FrontLeftArmy4
+    400122: FrontLeftArmyRig
+    400124: FrontLeftArmyRig_end
+    400126: FrontLeftArmyStart
+    400128: FrontRightArmy2
+    400130: FrontRightArmy3
+    400132: FrontRightArmy4
+    400134: FrontRightArmyRig
+    400136: FrontRightArmyRig_end
+    400138: FrontRightArmyStart
+    400140: //RootNode
+    400142: Head2
+    400144: HeadRig_001
+    400146: MouthRig
+    400148: MouthRig_end
+    400150: NeckRig
+    400152: RightBackHip
+    400154: Sphere
+    400156: Sphere_001
+    400158: Tail2
+    400160: Tail3
+    400162: TailRig
+    400164: TailRig_end
+    400166: TailStart
+    4300000: Cube_004
+    4300002: Cube_002
+    4300004: Cube_001
+    4300006: Cube_003
+    4300008: Sphere_001
+    4300010: Sphere
+    7400000: Default Take
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Cube_001
+    13700002: Cube_002
+    13700004: Cube_003
+    13700006: Cube_004
+    13700008: Sphere
+    13700010: Sphere_001
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_001
+    second: {fileID: 2100000, guid: 3ee1c21cfab37bb4fbae6de7d538a6c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_002
+    second: {fileID: 2100000, guid: 3ee1c21cfab37bb4fbae6de7d538a6c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_003
+    second: {fileID: 2100000, guid: 3ee1c21cfab37bb4fbae6de7d538a6c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_004
+    second: {fileID: 2100000, guid: 5d46d2a6e98b16d49bd4afc01050eb48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_005
+    second: {fileID: 2100000, guid: 5d46d2a6e98b16d49bd4afc01050eb48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: unnamed
+    second: {fileID: 2100000, guid: 5d46d2a6e98b16d49bd4afc01050eb48, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 249
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
