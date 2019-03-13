@@ -11,7 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 146836576, guid: 0472bdc8d6d15384d98f22ee34302f9c, type: 3}
   m_Name: ProBuilderPreferences
   m_EditorClassIdentifier: 
-  m_Bool_keys: []
+  m_Bool_keys:
+  - pbGenerateUV2PerObject
+  - pb_SmoothingGroupEditor::m_ShowPreview
+  - pb_SmoothingGroupEditor::m_DrawNormals
+  - pb_SmoothingGroupEditor::m_PreviewDither
   m_Int_keys:
   - pbHandleAlignment
   - pbDefaultEditLevel
@@ -19,15 +23,19 @@ MonoBehaviour:
   m_Float_keys:
   - pbEditorScroll.x
   - pbEditorScroll.y
+  - pb_SmoothingGroupEditor::m_NormalsSize
+  - pb_SmoothingGroupEditor::m_PreviewOpacity
   m_String_keys:
   - pbCurrentMaterialPalette
   m_Color_keys: []
   m_Material_keys: []
-  m_Bool_values: 
+  m_Bool_values: 00010000
   m_Int_values: 000000000000000002000000
   m_Float_values:
   - 0
   - 0
+  - 0.6320761
+  - 0.67
   m_String_values:
   - Assets/ProCore/ProBuilder/Data/Default Material Palette.asset
   m_Color_values: []
