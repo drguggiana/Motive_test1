@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VR_visualcliff.unity
     guid: 7a53597b35bf99b4db06bc3cd026eeb5
+  - enabled: 0
+    path: Assets/Scenes/VR_virtualNest.unity
+    guid: 0d56e97a25ddb0b43b9b22edc309e222
   m_configObjects: {}

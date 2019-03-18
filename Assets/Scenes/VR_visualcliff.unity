@@ -743,7 +743,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 2
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -1002,7 +1002,7 @@ MonoBehaviour:
   ServerAddress: 127.0.0.1
   ServerCommandPort: 1510
   ServerDataPort: 1511
-  DrawMarkers: 1
+  DrawMarkers: 0
   BoneNamingConvention: 0
 --- !u!4 &836261048
 Transform:
@@ -1102,8 +1102,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 939008333}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.028, y: 0, z: -0.095}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: -0.066, y: -0.11, z: 0.158}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 751935721}
   m_RootOrder: 1
@@ -1125,7 +1125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1069990239
 Transform:
   m_ObjectHideFlags: 0
@@ -1357,8 +1357,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1354574492}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.183, y: 0, z: 0.455}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0.183, y: -0.121, z: 0.455}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 751935721}
   m_RootOrder: 0
@@ -6598,7 +6598,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh13594
+  m_Name: pb_Mesh17660
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -6753,7 +6753,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh13716
+  m_Name: pb_Mesh17794
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2

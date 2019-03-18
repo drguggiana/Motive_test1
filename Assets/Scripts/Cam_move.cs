@@ -42,7 +42,7 @@ public class Cam_move : MonoBehaviour
 	Vector2 center_vec;
 
 
-	float rotUD = 0;
+//	float rotUD = 0;
 
 	// Use this for initialization
 	void Start()
