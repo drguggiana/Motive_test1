@@ -76,6 +76,7 @@
      <Compile Include="Assets\Scripts\DisplayScript.cs" />
      <Compile Include="Assets\Scripts\Load_camParameters.cs" />
      <Compile Include="Assets\Scripts\Optitrack_cricket.cs" />
+     <Compile Include="Assets\Scripts\Optitrack_mod_marker.cs" />
      <Compile Include="Assets\Scripts\Optitrack_mod1.cs" />
      <Compile Include="Assets\Scripts\PlayControl.cs" />
      <Compile Include="Assets\Scripts\PostEffectScript.cs" />
