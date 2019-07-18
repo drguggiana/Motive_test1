@@ -106,16 +106,16 @@
      <Compile Include="Assets\ProCore\ProBuilder\Editor\pb_ScenePostProcessor.cs" />
      <None Include="Assets\OptiTrack\Editor\Materials\MarkerShader.shader" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>C:/Users/drguggiana/Documents/Motive_test1/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/drguggiana/Documents/Unity/Motive_test1/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/drguggiana/Documents/Motive_test1/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/drguggiana/Documents/Unity/Motive_test1/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/drguggiana/Documents/Motive_test1/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/drguggiana/Documents/Unity/Motive_test1/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/drguggiana/Documents/Motive_test1/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/drguggiana/Documents/Unity/Motive_test1/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -358,22 +358,22 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore-Unity5">
- <HintPath>C:/Users/drguggiana/Documents/Motive_test1/Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
+ <HintPath>C:/Users/drguggiana/Documents/Unity/Motive_test1/Assets/ProCore/ProBuilder/Classes/ProBuilderCore-Unity5.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderMeshOps-Unity5">
- <HintPath>C:/Users/drguggiana/Documents/Motive_test1/Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
+ <HintPath>C:/Users/drguggiana/Documents/Unity/Motive_test1/Assets/ProCore/ProBuilder/Classes/ProBuilderMeshOps-Unity5.dll</HintPath>
  </Reference>
  <Reference Include="KdTreeLib">
- <HintPath>C:/Users/drguggiana/Documents/Motive_test1/Assets/ProCore/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
+ <HintPath>C:/Users/drguggiana/Documents/Unity/Motive_test1/Assets/ProCore/ProBuilder/Classes/ClassesLib/KdTreeLib.dll</HintPath>
  </Reference>
  <Reference Include="pb_Stl">
- <HintPath>C:/Users/drguggiana/Documents/Motive_test1/Assets/ProCore/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
+ <HintPath>C:/Users/drguggiana/Documents/Unity/Motive_test1/Assets/ProCore/ProBuilder/Classes/ClassesLib/pb_Stl.dll</HintPath>
  </Reference>
  <Reference Include="Poly2Tri">
- <HintPath>C:/Users/drguggiana/Documents/Motive_test1/Assets/ProCore/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
+ <HintPath>C:/Users/drguggiana/Documents/Unity/Motive_test1/Assets/ProCore/ProBuilder/Classes/ClassesLib/Poly2Tri.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderEditor-Unity5">
- <HintPath>C:/Users/drguggiana/Documents/Motive_test1/Assets/ProCore/ProBuilder/Editor/ProBuilderEditor-Unity5.dll</HintPath>
+ <HintPath>C:/Users/drguggiana/Documents/Unity/Motive_test1/Assets/ProCore/ProBuilder/Editor/ProBuilderEditor-Unity5.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Users/drguggiana/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
@@ -421,6 +421,14 @@
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{AC6D78D5-EBE4-7981-FAA3-39022106AB69}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsExamplesEditor.csproj">
+      <Project>{C6F8F7F9-D6CA-F9A1-0072-D187A9475BD7}</Project>      <Name>NavMeshComponentsExamplesEditor</Name>    </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsEditor.csproj">
+      <Project>{C3EE6AF0-D52D-4DF0-E3AE-606C8AEECE59}</Project>      <Name>NavMeshComponentsEditor</Name>    </ProjectReference>
+    <ProjectReference Include="NavMeshComponents.csproj">
+      <Project>{C2D5CB7B-ABB0-18E3-0B49-4472D0EE54CE}</Project>      <Name>NavMeshComponents</Name>    </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsExamples.csproj">
+      <Project>{CDAB248E-2116-EA14-BA97-7C5F968E69A0}</Project>      <Name>NavMeshComponentsExamples</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
