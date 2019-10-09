@@ -42,7 +42,7 @@ public class Cam_move : MonoBehaviour
 	Vector2 center_vec;
 
 
-	float rotUD = 0;
+//	float rotUD = 0;
 
 	// Use this for initialization
 	void Start()
@@ -63,7 +63,7 @@ public class Cam_move : MonoBehaviour
 //		fwd_vector = new Vector3 (float.Parse (temp_data [9]),-float.Parse (temp_data [11]),float.Parse (temp_data [10]));
 //		up_vector = new Vector3 (float.Parse (temp_data [6]),-float.Parse (temp_data [8]),float.Parse (temp_data [7]));
 		fwd_vector = new Vector3 (float.Parse (temp_data [9]),-float.Parse (temp_data [11]),float.Parse (temp_data [10]));
-		up_vector = new Vector3 (float.Parse (temp_data [6]),-float.Parse (temp_data [8]),float.Parse (temp_data [7]));
+		up_vector = new Vector3 (-float.Parse (temp_data [6]),-float.Parse (temp_data [8]),float.Parse (temp_data [7]));
 
 		center_vec = new Vector2 (float.Parse (temp_data [14]),float.Parse (temp_data [17]));
 

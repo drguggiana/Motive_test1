@@ -9,11 +9,26 @@ using UnityEngine;
 
 public class OptitrackHmd : MonoBehaviour
 {
+    public enum OptitrackHmdRbOrientation
+    {
+        // Oculus/SteamVR native
+        NegativeZForward,
+
+        // Unity
+        PositiveZForward,
+
+        // Unreal
+        PositiveXForward,
+    }
+
     public OptitrackStreamingClient StreamingClient;
     public Int32 RigidBodyId;
-    
+    public OptitrackHmdRbOrientation RigidBodyOrientation;
+
+    private bool m_deviceInitialized = false;
+    private bool m_deviceWasPresent = false;
     private GameObject m_hmdCameraObject;
-    private IntPtr m_driftCorrHandle;
+    private IntPtr m_nphmdHandle;
 
 
     void Start()
@@ -32,86 +47,105 @@ public class OptitrackHmd : MonoBehaviour
             }
         }
 
-        if ( UnityEngine.XR.XRDevice.isPresent )
-        {
-            string vrDeviceFamily = UnityEngine.XR.XRDevice.family;
-            string vrDeviceModel = UnityEngine.XR.XRDevice.model;
-            bool isOculusDevice = String.Equals( vrDeviceFamily, "oculus", StringComparison.CurrentCultureIgnoreCase );
-
-            if ( isOculusDevice )
-            {
-                if ( TryDisableOvrPositionTracking() == false )
-                {
-                    Debug.LogError( GetType().FullName + ": Detected Oculus HMD (\"" + vrDeviceModel + "\", but could not disable OVR position tracking.", this );
-                }
-                else
-                {
-                    Debug.Log( GetType().FullName + ": Successfully disabled position tracking for HMD \"" + vrDeviceModel + "\".", this );
-                }
-            }
-            else
-            {
-                Debug.LogWarning( GetType().FullName + ": Unrecognized HMD type (\"" + vrDeviceFamily + "\", \"" + vrDeviceModel + "\").", this );
-            }
-        }
-        else
-        {
-            Debug.LogWarning( GetType().FullName + ": No VRDevice present.", this );
-
-        }
-
-        // Cache a reference to the gameobject containing the HMD Camera.
-        Camera hmdCamera = this.GetComponentInChildren<Camera>();
-        if ( hmdCamera == null )
-        {
-            Debug.LogError( GetType().FullName + ": Couldn't locate HMD-driven Camera component in children.", this );
-        }
-        else
-        {
-            m_hmdCameraObject = hmdCamera.gameObject;
-        }
+        m_deviceWasPresent = DevicePresent();
+        m_deviceInitialized = InitializeDevice();
     }
 
 
     void OnEnable()
     {
-        NpHmdResult result = NativeMethods.NpHmd_Create( out m_driftCorrHandle );
-        if ( result != NpHmdResult.OK || m_driftCorrHandle == IntPtr.Zero )
+        NpHmdResult result = NativeMethods.NpHmd_Create( out m_nphmdHandle );
+        if ( result != NpHmdResult.OK || m_nphmdHandle == IntPtr.Zero )
         {
-            Debug.LogError( GetType().FullName + ": NpHmd_GetOrientationCorrection failed.", this );
-            m_driftCorrHandle = IntPtr.Zero;
+            Debug.LogError( GetType().FullName + ": NpHmd_Create failed.", this );
+            m_nphmdHandle = IntPtr.Zero;
             this.enabled = false;
             return;
         }
+
+#if UNITY_2017_1_OR_NEWER
+        Application.onBeforeRender += OnBeforeRender;
+#endif
     }
 
 
     void OnDisable()
     {
-        if ( m_driftCorrHandle != IntPtr.Zero )
+#if UNITY_2017_1_OR_NEWER
+        Application.onBeforeRender -= OnBeforeRender;
+#endif
+
+        if ( m_nphmdHandle != IntPtr.Zero )
         {
-            NativeMethods.NpHmd_Destroy( m_driftCorrHandle );
-            m_driftCorrHandle = IntPtr.Zero;
+            NativeMethods.NpHmd_Destroy( m_nphmdHandle );
+            m_nphmdHandle = IntPtr.Zero;
         }
     }
 
 
     void Update()
     {
+        if ( ! m_deviceInitialized )
+        {
+            if ( m_deviceWasPresent == false && DevicePresent() )
+            {
+                Debug.LogWarning( GetType().FullName + ": XRDevice found.", this );
+
+                m_deviceWasPresent = true;
+                m_deviceInitialized = InitializeDevice();
+            }
+        }
+        else
+        {
+            if ( m_deviceWasPresent && DevicePresent() == false )
+            {
+                Debug.LogWarning( GetType().FullName + ": XRDevice lost.", this );
+
+                m_deviceWasPresent = false;
+                m_deviceInitialized = false;
+            }
+        }
+
+        UpdatePose();
+    }
+
+
+#if UNITY_2017_1_OR_NEWER
+    void OnBeforeRender()
+    {
+        UpdatePose();
+    }
+#endif
+
+
+    void UpdatePose()
+    {
         OptitrackRigidBodyState rbState = StreamingClient.GetLatestRigidBodyState( RigidBodyId );
         if ( rbState != null && rbState.DeliveryTimestamp.AgeSeconds < 1.0f )
         {
-            // Update position.
             this.transform.localPosition = rbState.Pose.Position;
 
-            // Update drift correction.
-            if ( m_driftCorrHandle != IntPtr.Zero && m_hmdCameraObject )
+            if ( m_nphmdHandle != IntPtr.Zero && m_deviceInitialized )
             {
-                NpHmdQuaternion opticalOri = new NpHmdQuaternion( rbState.Pose.Orientation );
                 NpHmdQuaternion inertialOri = new NpHmdQuaternion( m_hmdCameraObject.transform.localRotation );
+                NpHmdQuaternion opticalOri;
+                switch ( RigidBodyOrientation )
+                {
+                    case OptitrackHmdRbOrientation.NegativeZForward:
+                        opticalOri = new NpHmdQuaternion( rbState.Pose.Orientation * Quaternion.Euler( 0.0f, 180.0f, 0.0f ) );
+                        break;
+                    case OptitrackHmdRbOrientation.PositiveZForward:
+                        opticalOri = new NpHmdQuaternion( rbState.Pose.Orientation );
+                        break;
+                    case OptitrackHmdRbOrientation.PositiveXForward:
+                        opticalOri = new NpHmdQuaternion( rbState.Pose.Orientation * Quaternion.Euler( 0.0f, -90.0f, 0.0f ) );
+                        break;
+                    default:
+                        return;
+                }
 
                 NpHmdResult result = NativeMethods.NpHmd_MeasurementUpdate(
-                    m_driftCorrHandle,
+                    m_nphmdHandle,
                     ref opticalOri, // const
                     ref inertialOri, // const
                     Time.deltaTime
@@ -120,7 +154,7 @@ public class OptitrackHmd : MonoBehaviour
                 if ( result == NpHmdResult.OK )
                 {
                     NpHmdQuaternion newCorrection;
-                    result = NativeMethods.NpHmd_GetOrientationCorrection( m_driftCorrHandle, out newCorrection );
+                    result = NativeMethods.NpHmd_GetOrientationCorrection( m_nphmdHandle, out newCorrection );
 
                     if ( result == NpHmdResult.OK )
                     {
@@ -141,6 +175,81 @@ public class OptitrackHmd : MonoBehaviour
                 }
             }
         }
+    }
+
+
+    bool DevicePresent()
+    {
+#if UNITY_2017_2_OR_NEWER
+        return UnityEngine.XR.XRSettings.enabled && UnityEngine.XR.XRDevice.isPresent;
+#else
+        return UnityEngine.VR.VRSettings.enabled && UnityEngine.VR.VRDevice.isPresent;
+#endif
+    }
+
+
+    bool DeviceSupported()
+    {
+        if ( ! DevicePresent() )
+        {
+            return false;
+        }
+
+#if UNITY_2017_2_OR_NEWER
+        string deviceFamily = UnityEngine.XR.XRSettings.loadedDeviceName;
+        string deviceModel = UnityEngine.XR.XRDevice.model;
+#else
+        string deviceFamily = UnityEngine.VR.VRSettings.loadedDeviceName;
+        string deviceModel = UnityEngine.VR.VRDevice.model;
+#endif
+
+        bool isOculusDevice = String.Equals( deviceFamily, "oculus", StringComparison.CurrentCultureIgnoreCase );
+        return isOculusDevice;
+    }
+
+
+    bool InitializeDevice()
+    {
+        if ( DevicePresent() )
+        {
+            if ( DeviceSupported() )
+            {
+                if ( ! TryDisableOvrPositionTracking() )
+                {
+                    Debug.LogError( GetType().FullName + ": Could not disable OVR position tracking.", this );
+                    return false;
+                }
+                else
+                {
+                    Debug.Log( GetType().FullName + ": Successfully disabled OVR position tracking.", this );
+                }
+            }
+            else
+            {
+                Debug.LogWarning( GetType().FullName + ": Unsupported XRDevice type.", this );
+                return false;
+            }
+        }
+        else
+        {
+            Debug.LogWarning( GetType().FullName + ": No XRDevice present.", this );
+            return false;
+        }
+
+        // Cache a reference to the GameObject containing the HMD Camera.
+        Camera hmdCamera = this.GetComponentInChildren<Camera>();
+        if ( hmdCamera == null )
+        {
+            Debug.LogError( GetType().FullName + ": Couldn't locate HMD-driven Camera component in children.", this );
+            return false;
+        }
+        else
+        {
+            m_hmdCameraObject = hmdCamera.gameObject;
+        }
+
+        Debug.Log( GetType().FullName + ": Successfully (re)initialized.", this );
+        return true;
     }
 
 

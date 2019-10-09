@@ -30,7 +30,33 @@ public class OptitrackRigidBody : MonoBehaviour
     }
 
 
+#if UNITY_2017_1_OR_NEWER
+    void OnEnable()
+    {
+        Application.onBeforeRender += OnBeforeRender;
+    }
+
+
+    void OnDisable()
+    {
+        Application.onBeforeRender -= OnBeforeRender;
+    }
+
+
+    void OnBeforeRender()
+    {
+        UpdatePose();
+    }
+#endif
+
+
     void Update()
+    {
+        UpdatePose();
+    }
+
+
+    void UpdatePose()
     {
         OptitrackRigidBodyState rbState = StreamingClient.GetLatestRigidBodyState( RigidBodyId );
         if ( rbState != null )

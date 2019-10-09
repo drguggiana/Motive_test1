@@ -248,21 +248,25 @@ public class OptitrackSkeletonAnimator : MonoBehaviour
                 m_cachedMecanimBoneNameMap.Add( "Chest",            assetName + "_Chest" );
                 m_cachedMecanimBoneNameMap.Add( "Neck",             assetName + "_Neck" );
                 m_cachedMecanimBoneNameMap.Add( "Head",             assetName + "_Head" );
+
                 m_cachedMecanimBoneNameMap.Add( "LeftShoulder",     assetName + "_LShoulder" );
                 m_cachedMecanimBoneNameMap.Add( "LeftUpperArm",     assetName + "_LUArm" );
                 m_cachedMecanimBoneNameMap.Add( "LeftLowerArm",     assetName + "_LFArm" );
                 m_cachedMecanimBoneNameMap.Add( "LeftHand",         assetName + "_LHand" );
+
                 m_cachedMecanimBoneNameMap.Add( "RightShoulder",    assetName + "_RShoulder" );
                 m_cachedMecanimBoneNameMap.Add( "RightUpperArm",    assetName + "_RUArm" );
                 m_cachedMecanimBoneNameMap.Add( "RightLowerArm",    assetName + "_RFArm" );
                 m_cachedMecanimBoneNameMap.Add( "RightHand",        assetName + "_RHand" );
+
                 m_cachedMecanimBoneNameMap.Add( "LeftUpperLeg",     assetName + "_LThigh" );
                 m_cachedMecanimBoneNameMap.Add( "LeftLowerLeg",     assetName + "_LShin" );
                 m_cachedMecanimBoneNameMap.Add( "LeftFoot",         assetName + "_LFoot" );
+                m_cachedMecanimBoneNameMap.Add( "LeftToeBase",      assetName + "_LToe" );
+
                 m_cachedMecanimBoneNameMap.Add( "RightUpperLeg",    assetName + "_RThigh" );
                 m_cachedMecanimBoneNameMap.Add( "RightLowerLeg",    assetName + "_RShin" );
                 m_cachedMecanimBoneNameMap.Add( "RightFoot",        assetName + "_RFoot" );
-                m_cachedMecanimBoneNameMap.Add( "LeftToeBase",      assetName + "_LToe" );
                 m_cachedMecanimBoneNameMap.Add( "RightToeBase",     assetName + "_RToe" );
 
                 m_cachedMecanimBoneNameMap.Add( "Left Thumb Proximal",      assetName + "_LThumb1" );
@@ -306,22 +310,61 @@ public class OptitrackSkeletonAnimator : MonoBehaviour
                 m_cachedMecanimBoneNameMap.Add( "Chest",            assetName + "_Spine1" );
                 m_cachedMecanimBoneNameMap.Add( "Neck",             assetName + "_Neck" );
                 m_cachedMecanimBoneNameMap.Add( "Head",             assetName + "_Head" );
+
                 m_cachedMecanimBoneNameMap.Add( "LeftShoulder",     assetName + "_LeftShoulder" );
                 m_cachedMecanimBoneNameMap.Add( "LeftUpperArm",     assetName + "_LeftArm" );
                 m_cachedMecanimBoneNameMap.Add( "LeftLowerArm",     assetName + "_LeftForeArm" );
                 m_cachedMecanimBoneNameMap.Add( "LeftHand",         assetName + "_LeftHand" );
+
                 m_cachedMecanimBoneNameMap.Add( "RightShoulder",    assetName + "_RightShoulder" );
                 m_cachedMecanimBoneNameMap.Add( "RightUpperArm",    assetName + "_RightArm" );
                 m_cachedMecanimBoneNameMap.Add( "RightLowerArm",    assetName + "_RightForeArm" );
                 m_cachedMecanimBoneNameMap.Add( "RightHand",        assetName + "_RightHand" );
+
                 m_cachedMecanimBoneNameMap.Add( "LeftUpperLeg",     assetName + "_LeftUpLeg" );
                 m_cachedMecanimBoneNameMap.Add( "LeftLowerLeg",     assetName + "_LeftLeg" );
                 m_cachedMecanimBoneNameMap.Add( "LeftFoot",         assetName + "_LeftFoot" );
+                m_cachedMecanimBoneNameMap.Add( "LeftToeBase",      assetName + "_LeftToeBase" );
+
                 m_cachedMecanimBoneNameMap.Add( "RightUpperLeg",    assetName + "_RightUpLeg" );
                 m_cachedMecanimBoneNameMap.Add( "RightLowerLeg",    assetName + "_RightLeg" );
                 m_cachedMecanimBoneNameMap.Add( "RightFoot",        assetName + "_RightFoot" );
-                m_cachedMecanimBoneNameMap.Add( "LeftToeBase",      assetName + "_LeftToeBase" );
                 m_cachedMecanimBoneNameMap.Add( "RightToeBase",     assetName + "_RightToeBase" );
+
+                m_cachedMecanimBoneNameMap.Add( "Left Thumb Proximal",      assetName + "_LeftHandThumb1" );
+                m_cachedMecanimBoneNameMap.Add( "Left Thumb Intermediate",  assetName + "_LeftHandThumb2" );
+                m_cachedMecanimBoneNameMap.Add( "Left Thumb Distal",        assetName + "_LeftHandThumb3" );
+                m_cachedMecanimBoneNameMap.Add( "Right Thumb Proximal",     assetName + "_RightHandThumb1" );
+                m_cachedMecanimBoneNameMap.Add( "Right Thumb Intermediate", assetName + "_RightHandThumb2" );
+                m_cachedMecanimBoneNameMap.Add( "Right Thumb Distal",       assetName + "_RightHandThumb3" );
+
+                m_cachedMecanimBoneNameMap.Add( "Left Index Proximal",      assetName + "_LeftHandIndex1" );
+                m_cachedMecanimBoneNameMap.Add( "Left Index Intermediate",  assetName + "_LeftHandIndex2" );
+                m_cachedMecanimBoneNameMap.Add( "Left Index Distal",        assetName + "_LeftHandIndex3" );
+                m_cachedMecanimBoneNameMap.Add( "Right Index Proximal",     assetName + "_RightHandIndex1" );
+                m_cachedMecanimBoneNameMap.Add( "Right Index Intermediate", assetName + "_RightHandIndex2" );
+                m_cachedMecanimBoneNameMap.Add( "Right Index Distal",       assetName + "_RightHandIndex3" );
+
+                m_cachedMecanimBoneNameMap.Add( "Left Middle Proximal",      assetName + "_LeftHandMiddle1" );
+                m_cachedMecanimBoneNameMap.Add( "Left Middle Intermediate",  assetName + "_LeftHandMiddle2" );
+                m_cachedMecanimBoneNameMap.Add( "Left Middle Distal",        assetName + "_LeftHandMiddle3" );
+                m_cachedMecanimBoneNameMap.Add( "Right Middle Proximal",     assetName + "_RightHandMiddle1" );
+                m_cachedMecanimBoneNameMap.Add( "Right Middle Intermediate", assetName + "_RightHandMiddle2" );
+                m_cachedMecanimBoneNameMap.Add( "Right Middle Distal",       assetName + "_RightHandMiddle3" );
+
+                m_cachedMecanimBoneNameMap.Add( "Left Ring Proximal",      assetName + "_LeftHandRing1" );
+                m_cachedMecanimBoneNameMap.Add( "Left Ring Intermediate",  assetName + "_LeftHandRing2" );
+                m_cachedMecanimBoneNameMap.Add( "Left Ring Distal",        assetName + "_LeftHandRing3" );
+                m_cachedMecanimBoneNameMap.Add( "Right Ring Proximal",     assetName + "_RightHandRing1" );
+                m_cachedMecanimBoneNameMap.Add( "Right Ring Intermediate", assetName + "_RightHandRing2" );
+                m_cachedMecanimBoneNameMap.Add( "Right Ring Distal",       assetName + "_RightHandRing3" );
+
+                m_cachedMecanimBoneNameMap.Add( "Left Little Proximal",      assetName + "_LeftHandPinky1" );
+                m_cachedMecanimBoneNameMap.Add( "Left Little Intermediate",  assetName + "_LeftHandPinky2" );
+                m_cachedMecanimBoneNameMap.Add( "Left Little Distal",        assetName + "_LeftHandPinky3" );
+                m_cachedMecanimBoneNameMap.Add( "Right Little Proximal",     assetName + "_RightHandPinky1" );
+                m_cachedMecanimBoneNameMap.Add( "Right Little Intermediate", assetName + "_RightHandPinky2" );
+                m_cachedMecanimBoneNameMap.Add( "Right Little Distal",       assetName + "_RightHandPinky3" );
                 break;
             case OptitrackBoneNameConvention.BVH:
                 m_cachedMecanimBoneNameMap.Add( "Hips",             assetName + "_Hips" );
@@ -329,22 +372,61 @@ public class OptitrackSkeletonAnimator : MonoBehaviour
                 m_cachedMecanimBoneNameMap.Add( "Chest",            assetName + "_Chest2" );
                 m_cachedMecanimBoneNameMap.Add( "Neck",             assetName + "_Neck" );
                 m_cachedMecanimBoneNameMap.Add( "Head",             assetName + "_Head" );
+
                 m_cachedMecanimBoneNameMap.Add( "LeftShoulder",     assetName + "_LeftCollar" );
                 m_cachedMecanimBoneNameMap.Add( "LeftUpperArm",     assetName + "_LeftShoulder" );
                 m_cachedMecanimBoneNameMap.Add( "LeftLowerArm",     assetName + "_LeftElbow" );
                 m_cachedMecanimBoneNameMap.Add( "LeftHand",         assetName + "_LeftWrist" );
+
                 m_cachedMecanimBoneNameMap.Add( "RightShoulder",    assetName + "_RightCollar" );
                 m_cachedMecanimBoneNameMap.Add( "RightUpperArm",    assetName + "_RightShoulder" );
                 m_cachedMecanimBoneNameMap.Add( "RightLowerArm",    assetName + "_RightElbow" );
                 m_cachedMecanimBoneNameMap.Add( "RightHand",        assetName + "_RightWrist" );
+
                 m_cachedMecanimBoneNameMap.Add( "LeftUpperLeg",     assetName + "_LeftHip" );
                 m_cachedMecanimBoneNameMap.Add( "LeftLowerLeg",     assetName + "_LeftKnee" );
                 m_cachedMecanimBoneNameMap.Add( "LeftFoot",         assetName + "_LeftAnkle" );
+                m_cachedMecanimBoneNameMap.Add( "LeftToeBase",      assetName + "_LeftToe" );
+
                 m_cachedMecanimBoneNameMap.Add( "RightUpperLeg",    assetName + "_RightHip" );
                 m_cachedMecanimBoneNameMap.Add( "RightLowerLeg",    assetName + "_RightKnee" );
                 m_cachedMecanimBoneNameMap.Add( "RightFoot",        assetName + "_RightAnkle" );
-                m_cachedMecanimBoneNameMap.Add( "LeftToeBase",      assetName + "_LeftToe" );
                 m_cachedMecanimBoneNameMap.Add( "RightToeBase",     assetName + "_RightToe" );
+
+                m_cachedMecanimBoneNameMap.Add( "Left Thumb Proximal",      assetName + "_LeftFinger0" );
+                m_cachedMecanimBoneNameMap.Add( "Left Thumb Intermediate",  assetName + "_LeftFinger01" );
+                m_cachedMecanimBoneNameMap.Add( "Left Thumb Distal",        assetName + "_LeftFinger02" );
+                m_cachedMecanimBoneNameMap.Add( "Right Thumb Proximal",     assetName + "_RightFinger0" );
+                m_cachedMecanimBoneNameMap.Add( "Right Thumb Intermediate", assetName + "_RightFinger01" );
+                m_cachedMecanimBoneNameMap.Add( "Right Thumb Distal",       assetName + "_RightFinger02" );
+
+                m_cachedMecanimBoneNameMap.Add( "Left Index Proximal",      assetName + "_LeftFinger1" );
+                m_cachedMecanimBoneNameMap.Add( "Left Index Intermediate",  assetName + "_LeftFinger11" );
+                m_cachedMecanimBoneNameMap.Add( "Left Index Distal",        assetName + "_LeftFinger12" );
+                m_cachedMecanimBoneNameMap.Add( "Right Index Proximal",     assetName + "_RightFinger1" );
+                m_cachedMecanimBoneNameMap.Add( "Right Index Intermediate", assetName + "_RightFinger11" );
+                m_cachedMecanimBoneNameMap.Add( "Right Index Distal",       assetName + "_RightFinger12" );
+
+                m_cachedMecanimBoneNameMap.Add( "Left Middle Proximal",      assetName + "_LeftFinger2" );
+                m_cachedMecanimBoneNameMap.Add( "Left Middle Intermediate",  assetName + "_LeftFinger21" );
+                m_cachedMecanimBoneNameMap.Add( "Left Middle Distal",        assetName + "_LeftFinger22" );
+                m_cachedMecanimBoneNameMap.Add( "Right Middle Proximal",     assetName + "_RightFinger2" );
+                m_cachedMecanimBoneNameMap.Add( "Right Middle Intermediate", assetName + "_RightFinger21" );
+                m_cachedMecanimBoneNameMap.Add( "Right Middle Distal",       assetName + "_RightFinger22" );
+
+                m_cachedMecanimBoneNameMap.Add( "Left Ring Proximal",      assetName + "_LeftFinger3" );
+                m_cachedMecanimBoneNameMap.Add( "Left Ring Intermediate",  assetName + "_LeftFinger31" );
+                m_cachedMecanimBoneNameMap.Add( "Left Ring Distal",        assetName + "_LeftFinger32" );
+                m_cachedMecanimBoneNameMap.Add( "Right Ring Proximal",     assetName + "_RightFinger3" );
+                m_cachedMecanimBoneNameMap.Add( "Right Ring Intermediate", assetName + "_RightFinger31" );
+                m_cachedMecanimBoneNameMap.Add( "Right Ring Distal",       assetName + "_RightFinger32" );
+
+                m_cachedMecanimBoneNameMap.Add( "Left Little Proximal",      assetName + "_LeftFinger4" );
+                m_cachedMecanimBoneNameMap.Add( "Left Little Intermediate",  assetName + "_LeftFinger41" );
+                m_cachedMecanimBoneNameMap.Add( "Left Little Distal",        assetName + "_LeftFinger42" );
+                m_cachedMecanimBoneNameMap.Add( "Right Little Proximal",     assetName + "_RightFinger4" );
+                m_cachedMecanimBoneNameMap.Add( "Right Little Intermediate", assetName + "_RightFinger41" );
+                m_cachedMecanimBoneNameMap.Add( "Right Little Distal",       assetName + "_RightFinger42" );
                 break;
         }
     }

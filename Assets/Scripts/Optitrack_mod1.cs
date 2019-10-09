@@ -35,7 +35,8 @@ public class Optitrack_mod1 : MonoBehaviour
         OptitrackRigidBodyState rbState = StreamingClient.GetLatestRigidBodyState(RigidBodyId);
         if (rbState != null)
         {
-            this.transform.localPosition = rbState.Pose.Position;
+
+			this.transform.localPosition = rbState.Pose.Position;
             this.transform.localRotation = rbState.Pose.Orientation;
             //Debug.Log(this.transform.localPosition);
         }

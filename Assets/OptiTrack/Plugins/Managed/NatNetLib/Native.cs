@@ -23,12 +23,15 @@ namespace NaturalPoint.NatNetLib
         public const CallingConvention NatNetLibCallingConvention = CallingConvention.Cdecl;
 
         public const int MaxNameLength = 256;
-        public const int MaxModels = 200;
+        public const int MaxModels = 2000;
+        public const int MaxMarkersets = 1000;
         public const int MaxRigidBodies = 1000;
+        public const int MaxRigidBodyMarkers = 20;
         public const int MaxSkeletons = 100;
         public const int MaxSkeletonRigidBodies = 200;
         public const int MaxLabeledMarkers = 1000;
         public const int MaxForcePlates = 8;
+        public const int MaxDevices = 32;
         public const int MaxAnalogChannels = 32;
         public const int MaxAnalogSubframes = 30;
 
@@ -62,12 +65,21 @@ namespace NaturalPoint.NatNetLib
         NatNetDataDescriptionType_MarkerSet = 0,
         NatNetDataDescriptionType_RigidBody,
         NatNetDataDescriptionType_Skeleton,
-        NatNetDataDescriptionType_ForcePlate
+        NatNetDataDescriptionType_ForcePlate,
+        NatNetDataDescriptionType_Device,
     };
     #endregion Enumerations
 
 
     #region Definition types
+    [StructLayout( LayoutKind.Sequential )]
+    internal struct MarkerDataVector
+    {
+        [MarshalAs( UnmanagedType.ByValArray, SizeConst = 3 )]
+        public float[] Values;
+    }
+
+
     [StructLayout( LayoutKind.Sequential )]
     internal struct sDataDescriptions
     {
@@ -108,6 +120,9 @@ namespace NaturalPoint.NatNetLib
         public float OffsetX;
         public float OffsetY;
         public float OffsetZ;
+        public Int32 MarkerCount;
+        public IntPtr MarkerPositions; // Pointer to float[MarkerCount][3]
+        public IntPtr MarkerRequiredLabels; // Pointer to int32_t[MarkerCount]
     }
 
 
@@ -125,25 +140,25 @@ namespace NaturalPoint.NatNetLib
     }
 
 
-    // Marshalling helper for char[][] sForcePlateDescription.ChannelNames.
+    // Marshalling helper for char[][] ChannelNames in sForcePlateDescription/sDeviceDescription.
     [StructLayout( LayoutKind.Sequential, CharSet = CharSet.Ansi )]
-    internal struct sForcePlateChannelName
+    internal struct sChannelName
     {
         [MarshalAs( UnmanagedType.ByValTStr, SizeConst = NatNetConstants.MaxNameLength )]
         private string Value;
 
-        public static implicit operator string( sForcePlateChannelName source )
+        public static implicit operator string( sChannelName source )
         {
             return source.Value;
         }
 
-        public static implicit operator sForcePlateChannelName( string source )
+        public static implicit operator sChannelName( string source )
         {
             // Note that longer strings would be silently truncated if we didn't explicitly check this here.
             if ( source.Length >= NatNetConstants.MaxNameLength )
                 throw new ArgumentException( "String too large for field: \"" + source + "\"" );
 
-            return new sForcePlateChannelName { Value = source };
+            return new sChannelName { Value = source };
         }
     }
 
@@ -173,7 +188,27 @@ namespace NaturalPoint.NatNetLib
         public Int32 ChannelCount;
 
         [MarshalAs( UnmanagedType.ByValArray, SizeConst = NatNetConstants.MaxAnalogChannels )]
-        public sForcePlateChannelName[] ChannelNames;
+        public sChannelName[] ChannelNames;
+    }
+
+
+    [StructLayout( LayoutKind.Sequential, CharSet = CharSet.Ansi )]
+    internal struct sDeviceDescription
+    {
+        public Int32 Id;
+
+        [MarshalAs( UnmanagedType.ByValTStr, SizeConst = 128 )]
+        public string Name;
+
+        [MarshalAs( UnmanagedType.ByValTStr, SizeConst = 128 )]
+        public string SerialNo;
+
+        public Int32 DeviceType;
+        public Int32 ChannelDataType;
+        public Int32 ChannelCount;
+
+        [MarshalAs( UnmanagedType.ByValArray, SizeConst = NatNetConstants.MaxAnalogChannels )]
+        public sChannelName[] ChannelNames;
     }
     #endregion Definition types
 
@@ -207,10 +242,16 @@ namespace NaturalPoint.NatNetLib
         [MarshalAs( UnmanagedType.ByValArray, SizeConst = NatNetConstants.MaxForcePlates )]
         public sForcePlateData[] ForcePlates;
 
-        public float Latency;
+        public Int32 DeviceCount;
+        [MarshalAs( UnmanagedType.ByValArray, SizeConst = NatNetConstants.MaxDevices )]
+        public sDeviceData[] Devices;
+
         public UInt32 Timecode;
         public UInt32 TimecodeSubframe;
         public double Timestamp;
+        public UInt64 CameraMidExposureTimestamp;
+        public UInt64 CameraDataReceivedTimestamp;
+        public UInt64 TransmitTimestamp;
         public Int16 Params;
     }
 
@@ -237,10 +278,6 @@ namespace NaturalPoint.NatNetLib
         public float QY;
         public float QZ;
         public float QW;
-        public Int32 MarkerCount;
-        public IntPtr Markers; // Pointer to float[MarkerCount][3]
-        public IntPtr MarkerIds; // Pointer to Int32[MarkerCount]
-        public IntPtr MarkerSizes; // Pointer to float[MarkerCount]
         public float MeanError;
         public Int16 Params;
     }
@@ -252,24 +289,6 @@ namespace NaturalPoint.NatNetLib
         public Int32 Id;
         public Int32 RigidBodyCount;
         public IntPtr RigidBodies; // Pointer to sRigidBodyData[RigidBodyCount]
-
-
-        public sRigidBodyData[] MarshalRigidBodies()
-        {
-            sRigidBodyData[] returnArray = new sRigidBodyData[RigidBodyCount];
-
-            IntPtr buffer = Marshal.AllocCoTaskMem( Marshal.SizeOf( typeof( sRigidBodyData ) ) * RigidBodyCount );
-
-            for ( int i = 0; i < RigidBodyCount; ++i )
-            {
-                returnArray[i] = (sRigidBodyData)Marshal.PtrToStructure( RigidBodies, typeof( sRigidBodyData ) );
-                RigidBodies = new IntPtr( RigidBodies.ToInt64() + Marshal.SizeOf( typeof( sRigidBodyData ) ) );
-            }
-
-            Marshal.FreeCoTaskMem( buffer );
-
-            return returnArray;
-        }
     }
 
 
@@ -286,6 +305,15 @@ namespace NaturalPoint.NatNetLib
 
 
     [StructLayout( LayoutKind.Sequential )]
+    internal struct sAnalogChannelData
+    {
+        public Int32 FrameCount;
+        [MarshalAs( UnmanagedType.ByValArray, SizeConst = NatNetConstants.MaxAnalogSubframes )]
+        public float[] Values;
+    }
+
+
+    [StructLayout( LayoutKind.Sequential )]
     internal struct sForcePlateData
     {
         public Int32 Id;
@@ -297,11 +325,14 @@ namespace NaturalPoint.NatNetLib
 
 
     [StructLayout( LayoutKind.Sequential )]
-    internal struct sAnalogChannelData
+    internal struct sDeviceData
     {
-        public Int32 FrameCount;
-        [MarshalAs( UnmanagedType.ByValArray, SizeConst = NatNetConstants.MaxAnalogSubframes )]
-        public float[] Values;
+        public Int32 Id;
+        public Int32 ChannelCount;
+        [MarshalAs( UnmanagedType.ByValArray, SizeConst = NatNetConstants.MaxAnalogChannels )]
+        public sAnalogChannelData[] ChannelData;
+        public Int16 Params;
+
     }
     #endregion Data types
 
@@ -309,8 +340,9 @@ namespace NaturalPoint.NatNetLib
     [StructLayout( LayoutKind.Sequential, CharSet = CharSet.Ansi )]
     internal struct sNatNetClientConnectParams
     {
-        public Int32 ServerCommandPort;
-        public Int32 ServerDataPort;
+        public NatNetConnectionType ConnectionType;
+        public UInt16 ServerCommandPort;
+        public UInt16 ServerDataPort;
         public string ServerAddress;
         public string LocalAddress;
         public string MulticastAddress;
@@ -340,7 +372,7 @@ namespace NaturalPoint.NatNetLib
         // subject to change without notice.
 
         [DllImport( NatNetConstants.NatNetLibDllBaseName, CallingConvention = NatNetConstants.NatNetLibCallingConvention )]
-        public static extern NatNetError NatNet_Client_Create( out IntPtr clientHandle, NatNetConnectionType connectionType );
+        public static extern NatNetError NatNet_Client_Create( out IntPtr clientHandle );
 
         [DllImport( NatNetConstants.NatNetLibDllBaseName, CallingConvention = NatNetConstants.NatNetLibCallingConvention )]
         public static extern NatNetError NatNet_Client_Destroy( IntPtr clientHandle );
@@ -382,5 +414,17 @@ namespace NaturalPoint.NatNetLib
 
         [DllImport( NatNetConstants.NatNetLibDllBaseName, CallingConvention = NatNetConstants.NatNetLibCallingConvention )]
         public static extern NatNetError NatNet_Frame_Skeleton_GetRigidBody( IntPtr pFrameOfMocapData, Int32 skeletonIndex, Int32 rigidBodyIndex, out sRigidBodyData rigidBodyData );
+
+        [DllImport( NatNetConstants.NatNetLibDllBaseName, CallingConvention = NatNetConstants.NatNetLibCallingConvention )]
+        public static extern NatNetError NatNet_Frame_GetTransmitTimestamp(IntPtr pFrameOfMocapData, out UInt64 pOutTransmitTimestamp);
+
+        [DllImport( NatNetConstants.NatNetLibDllBaseName, CallingConvention = NatNetConstants.NatNetLibCallingConvention )]
+        public static extern NatNetError NatNet_Frame_SecondsSinceHostTimestamp(IntPtr clientHandle, UInt64 inTimestamp, out double pOutTimeElapsed);
+
+        [DllImport( NatNetConstants.NatNetLibDllBaseName, CallingConvention = NatNetConstants.NatNetLibCallingConvention )]
+        public static extern NatNetError NatNet_Frame_GetLabeledMarkerCount(IntPtr pFrameOfMocapData, out Int32 labeledMarkerCount);
+
+        [DllImport( NatNetConstants.NatNetLibDllBaseName, CallingConvention = NatNetConstants.NatNetLibCallingConvention )]
+        public static extern NatNetError NatNet_Frame_GetLabeledMarker(IntPtr pFrameOfMocapData, Int32 labeledMarkerIndex, out sMarker labeledMarkerData);
     }
 }

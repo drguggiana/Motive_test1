@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+//using System.Collections;
 
 public class Recorder_script : MonoBehaviour {
 
@@ -19,7 +20,8 @@ public class Recorder_script : MonoBehaviour {
 	void Update () {
 		StreamWriter writer = new StreamWriter("C:/Users/drguggiana/Documents/Motive_test1/etc/test.txt", true);
 
-		writer.WriteLine(playerObj.position.ToString());
+		writer.WriteLine(string.Concat(playerObj.position.x.ToString(), ',', playerObj.position.y.ToString(), ',', playerObj.position.z.ToString(), ',',
+			playerObj.eulerAngles.x.ToString(), ',', playerObj.eulerAngles.y.ToString(), ',', playerObj.eulerAngles.z.ToString()));
 		writer.Close();
 		
 	}
