@@ -79,6 +79,7 @@
      <Compile Include="Assets\Scripts\Optitrack_cricket.cs" />
      <Compile Include="Assets\Scripts\Optitrack_mod_marker.cs" />
      <Compile Include="Assets\Scripts\Optitrack_mod1.cs" />
+     <Compile Include="Assets\Scripts\OSC.cs" />
      <Compile Include="Assets\Scripts\PlayControl.cs" />
      <Compile Include="Assets\Scripts\PlayControl_rat.cs" />
      <Compile Include="Assets\Scripts\PostEffectScript.cs" />

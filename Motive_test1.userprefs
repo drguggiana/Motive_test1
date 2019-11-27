@@ -5,12 +5,9 @@
       <File FileName="Assets\Scripts\CamCubemap6.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Load_camParameters.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PlayControl_rat.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Recorder_script_both.cs" Line="65" Column="3" />
+      <File FileName="Assets\Scripts\Recorder_script_both.cs" Line="116" Column="41" />
       <File FileName="Assets\Scripts\WanderingAI_escape.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\WanderingAI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Recorder_script_VR.cs" Line="1" Column="1" />
-      <File FileName="Assets\OptiTrack\Scripts\OptitrackStreamingClient.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\DisplayScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
