@@ -1,13 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Recorder_script_both.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Recorder_script_social.cs">
     <Files>
       <File FileName="Assets\Scripts\CamCubemap6.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Load_camParameters.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PlayControl_rat.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Recorder_script_both.cs" Line="116" Column="41" />
       <File FileName="Assets\Scripts\WanderingAI_escape.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\WanderingAI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Recorder_script_social.cs" Line="44" Column="64" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

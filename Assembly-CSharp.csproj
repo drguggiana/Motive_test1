@@ -85,6 +85,7 @@
      <Compile Include="Assets\Scripts\PostEffectScript.cs" />
      <Compile Include="Assets\Scripts\Recorder_script.cs" />
      <Compile Include="Assets\Scripts\Recorder_script_both.cs" />
+     <Compile Include="Assets\Scripts\Recorder_script_social.cs" />
      <Compile Include="Assets\Scripts\Recorder_script_VR.cs" />
      <Compile Include="Assets\Scripts\WanderingAI.cs" />
      <Compile Include="Assets\Scripts\WanderingAI_escape.cs" />
