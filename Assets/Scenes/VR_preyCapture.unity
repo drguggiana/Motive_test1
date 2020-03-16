@@ -776,7 +776,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh32774
+  m_Name: pb_Mesh13940
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -2594,7 +2594,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1078704777
 Transform:
   m_ObjectHideFlags: 0
@@ -3803,7 +3803,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -4227,7 +4227,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1465439240}
-  load_path: C:\\Users\\setup\\Documents\\Unity_projects\\UnityProjectionMapping\\Build\\cam_parameters.txt
 --- !u!114 &1465439242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6318,7 +6317,6 @@ MonoBehaviour:
   z_bound: {x: -10, y: 10}
   tracking_square: {fileID: 1409189863}
   osc: {fileID: 1005790155}
-  target_path: C:/Users/setup/Documents/Unity_projects/Motive_test1/etc/suffix.txt
 --- !u!136 &1978488602
 CapsuleCollider:
   m_ObjectHideFlags: 0

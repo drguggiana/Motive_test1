@@ -1,12 +1,13 @@
 # set by project owner
-etc
 
 Assets/Models/grille
 Assets/ProCore/
+Assets/Scripts/Paths.cs
+
+etc
 VR
 Real
 Social
-
 
 # This .gitignore file should be placed at the root of your Unity project directory
 #
