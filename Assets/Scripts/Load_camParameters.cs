@@ -7,11 +7,12 @@ using System.Text.RegularExpressions;
 public class Load_camParameters : MonoBehaviour {
 
 	public Camera cam;
+    public string load_path;
 	// Use this for initialization
 	void Start () {
 		
 		// define the loading path
-		string path = "C:\\Users\\drguggiana\\Documents\\UnityProjectionMapping\\Build\\cam_parameters.txt";
+		string path = load_path;
 		// create the streamreader element 
 		StreamReader reader = new StreamReader (path);
 		// read the entire document
