@@ -48,7 +48,7 @@ public class NavMeshRun : MonoBehaviour {
 		UnityEngine.AI.NavMeshHit hit;    // stores the output in a variable called hit
 
 		// 5 is the distance to check, assumes you use default for the NavMesh Layer name
-		UnityEngine.AI.NavMesh.SamplePosition(runTo, out hit, 5, 1 << UnityEngine.AI.NavMesh.GetNavMeshLayerFromName("Default")); 
+		UnityEngine.AI.NavMesh.SamplePosition(runTo, out hit, 5, 1 << UnityEngine.AI.NavMesh.GetAreaFromName("Default")); 
 		//Debug.Log("hit = " + hit + " hit.position = " + hit.position);
 
 		// just used for testing - safe to ignore
