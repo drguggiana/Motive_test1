@@ -2546,8 +2546,7 @@ MonoBehaviour:
   anim: {fileID: 1078704780}
   rootNode: {fileID: 607855479}
   wanderRadius: 0.4
-  wanderTimer: 1.5
-  multiplyBy: 0.4
+  wanderTimer: 1
 --- !u!195 &1078704779
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2682,7 +2681,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh5508
+  m_Name: pb_Mesh5530
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -4413,8 +4412,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: -334000983
-  m_StartPoint: {x: 0, y: -0.004586011, z: 0.487268}
-  m_EndPoint: {x: 0, y: 0.014916301, z: 0.50212264}
+  m_StartPoint: {x: -4.806305e-10, y: -0.004586011, z: 0.46001586}
+  m_EndPoint: {x: -8.9008484e-10, y: 0.014916302, z: 0.5127387}
   m_Width: 0.5
   m_CostModifier: -1
   m_Bidirectional: 1
@@ -4451,7 +4450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: -334000983
-  m_StartPoint: {x: 0, y: -0.0047591627, z: -0.487268}
+  m_StartPoint: {x: -2.6984714e-10, y: -0.0047591627, z: -0.46865386}
   m_EndPoint: {x: 0, y: 0.009178221, z: -0.5021226}
   m_Width: 0.5
   m_CostModifier: -1
@@ -4472,7 +4471,7 @@ MonoBehaviour:
   m_AgentTypeID: -334000983
   m_StartPoint: {x: -0.2229559, y: -0.004207492, z: 0}
   m_EndPoint: {x: -0.24522032, y: 0.016625822, z: 0}
-  m_Width: 0.97046375
+  m_Width: 0.97019714
   m_CostModifier: -1
   m_Bidirectional: 1
   m_AutoUpdatePosition: 1
