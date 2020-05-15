@@ -1,7 +1,10 @@
 # set by project owner
 
 Assets/Models/grille
+Assets/Models/grille.meta
 Assets/ProCore/
+Assets/Prefabs/Cricket
+Assets/Prefabs/Cricket.meta
 Assets/Scripts/Paths.cs
 Assets/Scripts/Paths.cs.meta
 
