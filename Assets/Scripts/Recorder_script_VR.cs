@@ -12,21 +12,24 @@ public class Recorder_script_VR : MonoBehaviour
     // Streaming client
     public OptitrackStreamingClient StreamingClient;
 
+    // OSC communication client
+    public OSC osc;
+
     // Variables for mouse position
+    public GameObject MouseObj;
     private Vector3 Mouse_Position;
     private Vector3 Mouse_Orientation;
 
     // Variables for cricket transforms and states
-    private GameObject CricketObj;
+    public GameObject CricketObj;
     private Vector3 Cricket_Position;
     private Vector3 Cricket_Orientation;
     private int state;
     private float speed;
-
-    // OSC communication client
-    public OSC osc;
-
-    // Variables for tracking square
+    private int encounter;
+    private int motion;
+    
+        // Variables for tracking square
     public GameObject tracking_square;
     private float color_factor = 0.0f;
     private Color new_color;
@@ -57,9 +60,6 @@ public class Recorder_script_VR : MonoBehaviour
 
         // Set the writer
         writer = new StreamWriter(Paths.recording_path, true);
-
-        // Find the cricket object
-        CricketObj = GameObject.Find("Cricket");
 
     }
 
@@ -103,15 +103,21 @@ public class Recorder_script_VR : MonoBehaviour
             Time_stamp = rbState.DeliveryTimestamp.SecondsSince(reference);
 
         }
+        else
+        {
+            Mouse_Position = MouseObj.transform.position;
+            Mouse_Orientation = MouseObj.transform.rotation.eulerAngles;
+        }
 
         // Get the VR cricket position and orientation
         Cricket_Position = CricketObj.transform.position;
-        Cricket_Orientation = CricketObj.transform.eulerAngles;
+        Cricket_Orientation = CricketObj.transform.rotation.eulerAngles;
 
         // Get the VR cricket speed and current motion state
         speed = CricketObj.GetComponent<Animator>().GetFloat("speed"); ;
         state = CricketObj.GetComponent<Animator>().GetInteger("state_selector");
-
+        motion = CricketObj.GetComponent<Animator>().GetInteger("motion_selector");
+        encounter = Convert.ToInt32(CricketObj.GetComponent<Animator>().GetBool("encounter"));
 
         // --- Data Saving --- //
 
@@ -123,7 +129,7 @@ public class Recorder_script_VR : MonoBehaviour
                 Mouse_Orientation.x.ToString(), ',', Mouse_Orientation.y.ToString(), ',', Mouse_Orientation.z.ToString(), ',',
                 Cricket_Position.x.ToString(), ',', Cricket_Position.y.ToString(), ',', Cricket_Position.z.ToString(), ',',
                 Cricket_Orientation.x.ToString(), ',', Cricket_Orientation.y.ToString(), ',', Cricket_Orientation.z.ToString(), ',',
-                speed.ToString(), ',', state.ToString()
+                speed.ToString(), ',', state.ToString(), ',', motion.ToString(), ',', encounter.ToString()
                 )
             );
 

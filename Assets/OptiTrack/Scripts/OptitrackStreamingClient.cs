@@ -191,22 +191,17 @@ public class OptitrackStreamingClient : MonoBehaviour
                 // Move existing spheres and create new ones if necessary
                 foreach (KeyValuePair<Int32, OptitrackMarkerState> markerEntry in m_latestMarkerStates)
                 {
-//					Debug.Log (m_latestMarkerStates[markerEntry.Key]);
-
-					if (m_latestMarkerSpheres.ContainsKey( markerEntry.Key ))
+                    if (m_latestMarkerSpheres.ContainsKey( markerEntry.Key ))
                     {
-//						Debug.Log (m_latestMarkerSpheres [markerEntry.Key].labeled);
                         m_latestMarkerSpheres[markerEntry.Key].transform.position = markerEntry.Value.Position;
                     }
                     else
                     {
-						if (markerEntry.Value.Labeled == false) {
-							var sphere = GameObject.CreatePrimitive (PrimitiveType.Sphere);
-							sphere.transform.parent = this.transform;
-							sphere.transform.localScale = new Vector3 (markerEntry.Value.Size, markerEntry.Value.Size, markerEntry.Value.Size);
-							sphere.transform.position = markerEntry.Value.Position;
-							m_latestMarkerSpheres [markerEntry.Key] = sphere;
-						}
+                        var sphere = GameObject.CreatePrimitive( PrimitiveType.Sphere );
+                        sphere.transform.parent = this.transform;
+                        sphere.transform.localScale = new Vector3( markerEntry.Value.Size, markerEntry.Value.Size, markerEntry.Value.Size );
+                        sphere.transform.position = markerEntry.Value.Position;
+                        m_latestMarkerSpheres[markerEntry.Key] = sphere;
                     }
                     markerIds.Add( markerEntry.Key );
                 }
