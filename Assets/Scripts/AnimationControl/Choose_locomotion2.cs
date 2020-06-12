@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
-public class Choose_static_animation : StateMachineBehaviour {
+public class Choose_locomotion2 : StateMachineBehaviour {
 
     // OnStateEnter is called on any state inside this state machine
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -33,7 +32,7 @@ public class Choose_static_animation : StateMachineBehaviour {
     // OnStateMachineEnter is called when entering a statemachine via its Entry Node
     override public void OnStateMachineEnter(Animator animator, int stateMachinePathHash)
     {
-        animator.SetInteger("state_selector", Random.Range(0, 3));
+        animator.SetInteger("motion_selector", Random.Range(0, 2));
     }
 
     // OnStateMachineExit is called when exiting a statemachine via its Exit Node

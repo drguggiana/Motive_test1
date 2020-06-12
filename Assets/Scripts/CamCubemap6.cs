@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 //so it runs during edit mode
 [ExecuteInEditMode]
+
 //Declare the class
 public class CamCubemap6 : MonoBehaviour
 {

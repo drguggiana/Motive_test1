@@ -2,26 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
 public class Choose_jump_exit : StateMachineBehaviour
 {
+
+    //private int jump_walk;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetBool("start_jump", true);
-        animator.SetInteger("jump_walk_transition", Random.Range(0, 2));
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
-
+    //
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        //jump_walk = Random.Range(0, 2);
+        animator.SetInteger("jump_walk_transition", 0);
         animator.SetBool("finish_jump", true);
     }
 

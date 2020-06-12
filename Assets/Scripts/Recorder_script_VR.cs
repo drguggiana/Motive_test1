@@ -5,7 +5,7 @@ using System.IO;
 using System;
 
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class Recorder_script_VR : MonoBehaviour
 {
 
@@ -48,6 +48,9 @@ public class Recorder_script_VR : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        // Force full screen on projector
+        Screen.fullScreen = true;
+
         // Get the reference timer
         reference = OptitrackHiResTimer.Now();
 
@@ -117,7 +120,7 @@ public class Recorder_script_VR : MonoBehaviour
         speed = CricketObj.GetComponent<Animator>().GetFloat("speed"); ;
         state = CricketObj.GetComponent<Animator>().GetInteger("state_selector");
         motion = CricketObj.GetComponent<Animator>().GetInteger("motion_selector");
-        encounter = Convert.ToInt32(CricketObj.GetComponent<Animator>().GetBool("encounter"));
+        encounter = CricketObj.GetComponent<Animator>().GetInteger("in_encounter");
 
         // --- Data Saving --- //
 
@@ -129,7 +132,7 @@ public class Recorder_script_VR : MonoBehaviour
                 Mouse_Orientation.x.ToString(), ',', Mouse_Orientation.y.ToString(), ',', Mouse_Orientation.z.ToString(), ',',
                 Cricket_Position.x.ToString(), ',', Cricket_Position.y.ToString(), ',', Cricket_Position.z.ToString(), ',',
                 Cricket_Orientation.x.ToString(), ',', Cricket_Orientation.y.ToString(), ',', Cricket_Orientation.z.ToString(), ',',
-                speed.ToString(), ',', state.ToString(), ',', motion.ToString(), ',', encounter.ToString()
+                speed.ToString(), ',', state.ToString(), ',', motion.ToString(), ',', encounter.ToString(), ',', color_factor.ToString()
                 )
             );
 

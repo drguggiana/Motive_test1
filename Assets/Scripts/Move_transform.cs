@@ -20,7 +20,7 @@ public class Move_transform : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetInteger("jump_walk_transition", Random.Range(0, 2));
+        // animator.SetInteger("jump_walk_transition", Random.Range(0, 2));
         animator.SetBool("finish_jump", true);
     }
 
