@@ -170,13 +170,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1975099875113826}
-  m_LocalRotation: {x: 0.00355172, y: 0.0000050831486, z: -0.0014311691, w: 0.99999267}
-  m_LocalPosition: {x: -0.025, y: -0.501, z: 0}
+  m_LocalRotation: {x: 0.0035517234, y: 0, z: 0, w: 0.9999937}
+  m_LocalPosition: {x: -0.0217, y: -0.517, z: -0.0056999996}
   m_LocalScale: {x: 0.051, y: 1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 4469075781567318}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.407, y: 0, z: -0.164}
+  m_LocalEulerAnglesHint: {x: 0.407, y: 0, z: 0}
 --- !u!4 &4102859055699054
 Transform:
   m_ObjectHideFlags: 1
@@ -223,7 +223,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1596390314639910}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.521, z: 0}
+  m_LocalPosition: {x: 0, y: 0.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4469075781567318}
@@ -577,7 +577,7 @@ MeshCollider:
   m_GameObject: {fileID: 1975099875113826}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -591,7 +591,7 @@ MeshCollider:
   m_GameObject: {fileID: 1146215684619598}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -619,7 +619,7 @@ MeshCollider:
   m_GameObject: {fileID: 1145255819549754}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -633,7 +633,7 @@ MeshCollider:
   m_GameObject: {fileID: 1203045776764172}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -647,7 +647,7 @@ MeshCollider:
   m_GameObject: {fileID: 1452443222527880}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -736,7 +736,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 1
   m_VoxelSize: 0.0005
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 2f91549713fb2a84bb4d7c175778cc52, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 54010fcf58e966442b40033d3977668b, type: 2}
 --- !u!114 &114169705807690084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -749,8 +749,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: -334000983
-  m_StartPoint: {x: -0.25069928, y: 0.013068231, z: -0.000000003420743}
-  m_EndPoint: {x: -0.23890524, y: 0.0035000145, z: 3.725894e-10}
+  m_StartPoint: {x: -0.26575974, y: 0.014261399, z: 3.5110992e-10}
+  m_EndPoint: {x: -0.2371259, y: 0.003494293, z: -5.010771e-10}
   m_Width: 1.01
   m_CostModifier: -1
   m_Bidirectional: 1
@@ -768,7 +768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: -334000983
-  m_StartPoint: {x: 0.26725787, y: 0.008470069, z: -6.4128786e-10}
+  m_StartPoint: {x: 0.26785782, y: 0.0008109876, z: 0.000000013300012}
   m_EndPoint: {x: 0.2391447, y: -0.0023740227, z: -0.0000000042113903}
   m_Width: 1.01
   m_CostModifier: -1
@@ -815,8 +815,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: -334000983
-  m_StartPoint: {x: 0, y: 0.007030914, z: -0.5213658}
-  m_EndPoint: {x: 0, y: 8.8169105e-10, z: -0.49671477}
+  m_StartPoint: {x: 0, y: 0.0146362875, z: -0.51243335}
+  m_EndPoint: {x: -0.0000000011564435, y: -0.0004135667, z: -0.4860085}
   m_Width: 0.51
   m_CostModifier: -1
   m_Bidirectional: 1
@@ -887,8 +887,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: -334000983
-  m_StartPoint: {x: -0.0000000010985711, y: -6.201989e-11, z: 0.47851583}
-  m_EndPoint: {x: 0, y: 0.007309981, z: 0.49946034}
+  m_StartPoint: {x: -0.0000000014232696, y: 0.0024810138, z: 0.47147968}
+  m_EndPoint: {x: -4.1562934e-10, y: 0.01102812, z: 0.5149459}
   m_Width: 0.51
   m_CostModifier: -1
   m_Bidirectional: 1

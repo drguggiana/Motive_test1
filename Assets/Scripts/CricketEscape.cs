@@ -8,7 +8,12 @@ public class CricketEscape : MonoBehaviour
 
     void OnTriggerEnter(Collider c)
     {
-        gameObject.GetComponentInParent<WanderingAI_escape>().Escape();
+        Debug.Log(c.tag);
+        if (c.CompareTag("Player"))
+        {
+            Debug.Log(c.tag);
+            gameObject.GetComponentInParent<WanderingAI_escape>().Escape();
+        }
     }
 
 }
