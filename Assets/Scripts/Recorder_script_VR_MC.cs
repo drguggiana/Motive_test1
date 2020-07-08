@@ -67,7 +67,7 @@ public class Recorder_script_VR_MC : MonoBehaviour
         // Set the writer
         writer = new StreamWriter(Paths.recording_path, true);
 
-        // Get cricket object array sorted by name
+        // Get cricket object array sorted by name/number
         CricketObjs = FindObsWithTag("Cricket");
 
     }
