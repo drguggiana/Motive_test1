@@ -8,7 +8,7 @@ public class CricketEscape : MonoBehaviour
 
     void OnTriggerEnter(Collider c)
     {
-        Debug.Log(c.tag);
+        //Debug.Log(c.tag);
         if (c.CompareTag("Player"))
         {
             Debug.Log(c.tag);
