@@ -26,7 +26,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/VR_Empty.unity
     guid: b613edc652ed3a243abd4debf55db829
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/VR_preyCapture_MC.unity
     guid: 0b7b6a0e8d827f044893adb40321a4af
+  - enabled: 0
+    path: Assets/Scenes/VR_preyCapture_MC_inv.unity
+    guid: b93c6ca083289ec4f81c4fedb3c50db6
+  - enabled: 1
+    path: Assets/Scenes/VR_preyCapture_inv.unity
+    guid: 53415b08497498e44987a9368c54cf5d
   m_configObjects: {}

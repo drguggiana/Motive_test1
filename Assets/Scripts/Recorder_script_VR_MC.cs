@@ -22,6 +22,7 @@ public class Recorder_script_VR_MC : MonoBehaviour
 
     // Variables for cricket transforms and states
     private GameObject[] CricketObjs;
+    GameObject cricket_obj;
     private Vector3 Cricket_Position;
     private Vector3 Cricket_Orientation;
     private int state;
@@ -125,7 +126,6 @@ public class Recorder_script_VR_MC : MonoBehaviour
         // Loop through the VR Crickets to get their data
         foreach (GameObject cricket_obj in CricketObjs)
         {
-            Debug.Log(cricket_obj.name);
             // Get the VR cricket position and orientation
             Cricket_Position = cricket_obj.transform.position;
             Cricket_Orientation = cricket_obj.transform.rotation.eulerAngles;

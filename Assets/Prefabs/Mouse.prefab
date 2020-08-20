@@ -68,10 +68,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4715335305075038}
-  - component: {fileID: 114491175376306664}
-  - component: {fileID: 114826615847799466}
   - component: {fileID: 114631758933139300}
   - component: {fileID: 143607901827865788}
+  - component: {fileID: 114373754176030258}
   m_Layer: 10
   m_Name: Mouse
   m_TagString: Player
@@ -87,7 +86,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4488722502775412}
-  - component: {fileID: 136353773996180186}
   - component: {fileID: 135194882979468556}
   m_Layer: 10
   m_Name: Collider
@@ -254,21 +252,20 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1434512426444694}
   m_Enabled: 1
---- !u!114 &114491175376306664
+--- !u!114 &114373754176030258
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1464968447097328}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4258a8e8f1fdf494482a9a767017dbbd, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f3b079b0aea4c443aeae73def6268a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   StreamingClient: {fileID: 0}
   osc: {fileID: 0}
   MouseObj: {fileID: 1464968447097328}
-  CricketObj: {fileID: 0}
   tracking_square: {fileID: 0}
   RigidBodyId: 2
 --- !u!114 &114631758933139300
@@ -287,22 +284,6 @@ MonoBehaviour:
   camObj: {fileID: 4789960278319098}
   udRange: 60
   jumpSpeed: 10
---- !u!114 &114826615847799466
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1464968447097328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f3b079b0aea4c443aeae73def6268a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StreamingClient: {fileID: 0}
-  osc: {fileID: 0}
-  MouseObj: {fileID: 1464968447097328}
-  tracking_square: {fileID: 0}
-  RigidBodyId: 2
 --- !u!135 &135194882979468556
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -314,19 +295,6 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.04
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &136353773996180186
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1730215165849346}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.04
-  m_Height: 0.125
-  m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &143607901827865788
 CharacterController:

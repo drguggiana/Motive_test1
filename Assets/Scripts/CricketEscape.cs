@@ -11,7 +11,6 @@ public class CricketEscape : MonoBehaviour
         //Debug.Log(c.tag);
         if (c.CompareTag("Player"))
         {
-            Debug.Log(c.tag);
             gameObject.GetComponentInParent<WanderingAI_escape>().Escape();
         }
     }
