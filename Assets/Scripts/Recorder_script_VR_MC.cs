@@ -5,7 +5,7 @@ using System.IO;
 using System;
 
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class Recorder_script_VR_MC : MonoBehaviour
 {
 
@@ -48,6 +48,8 @@ public class Recorder_script_VR_MC : MonoBehaviour
     string cricket_data;
     private StreamWriter writer;
 
+    private int count = 0;
+
 
     // Use this for initialization
     void Start()
@@ -76,6 +78,7 @@ public class Recorder_script_VR_MC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        count += 1;
         // --- Handle the tracking square --- //
 
         // create the color for the square
@@ -84,7 +87,9 @@ public class Recorder_script_VR_MC : MonoBehaviour
         tracking_square.GetComponent<Renderer>().material.SetColor("_Color", new_color);
 
         // Define the color for the next iteration (switch it)
-        if (color_factor > 0.0f)
+        //if (count % 120 == 0)
+        //{
+            if (color_factor > 0.0f)
         {
             color_factor = 0.0f;
         }
@@ -92,6 +97,8 @@ public class Recorder_script_VR_MC : MonoBehaviour
         {
             color_factor = 1.0f;
         }
+        //}
+
 
 
         // --- Handle mouse and cricket data --- //
