@@ -5,7 +5,7 @@ using System.IO;
 using System;
 
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class Recorder_script_VR_MC : MonoBehaviour
 {
 
@@ -22,6 +22,7 @@ public class Recorder_script_VR_MC : MonoBehaviour
 
     // Variables for cricket transforms and states
     private GameObject[] CricketObjs;
+    GameObject cricket_obj;
     private Vector3 Cricket_Position;
     private Vector3 Cricket_Orientation;
     private int state;
@@ -47,6 +48,8 @@ public class Recorder_script_VR_MC : MonoBehaviour
     string cricket_data;
     private StreamWriter writer;
 
+    private int count = 0;
+
 
     // Use this for initialization
     void Start()
@@ -67,7 +70,7 @@ public class Recorder_script_VR_MC : MonoBehaviour
         // Set the writer
         writer = new StreamWriter(Paths.recording_path, true);
 
-        // Get cricket object array sorted by name
+        // Get cricket object array sorted by name/number
         CricketObjs = FindObsWithTag("Cricket");
 
     }
@@ -75,6 +78,7 @@ public class Recorder_script_VR_MC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        count += 1;
         // --- Handle the tracking square --- //
 
         // create the color for the square
@@ -83,7 +87,9 @@ public class Recorder_script_VR_MC : MonoBehaviour
         tracking_square.GetComponent<Renderer>().material.SetColor("_Color", new_color);
 
         // Define the color for the next iteration (switch it)
-        if (color_factor > 0.0f)
+        //if (count % 120 == 0)
+        //{
+            if (color_factor > 0.0f)
         {
             color_factor = 0.0f;
         }
@@ -91,6 +97,8 @@ public class Recorder_script_VR_MC : MonoBehaviour
         {
             color_factor = 1.0f;
         }
+        //}
+
 
 
         // --- Handle mouse and cricket data --- //
@@ -125,7 +133,6 @@ public class Recorder_script_VR_MC : MonoBehaviour
         // Loop through the VR Crickets to get their data
         foreach (GameObject cricket_obj in CricketObjs)
         {
-            Debug.Log(cricket_obj.name);
             // Get the VR cricket position and orientation
             Cricket_Position = cricket_obj.transform.position;
             Cricket_Orientation = cricket_obj.transform.rotation.eulerAngles;
